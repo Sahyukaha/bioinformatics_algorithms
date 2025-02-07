@@ -8,6 +8,7 @@ from implementation.finding_patterns import find_clumps
 def main():
 
     data_path = os.path.join(os.path.dirname(__file__), "..", "data", "e_coli.txt")
+    data_path = os.path.join(os.path.dirname(__file__), "..", "data", "find_clumps_data.txt")
 
     with open(data_path, "r") as file:
         lines = file.readlines()
