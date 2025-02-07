@@ -4,7 +4,6 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from implementation.finding_patterns import find_clumps
 
-
 def main():
 
     data_path = os.path.join(os.path.dirname(__file__), "..", "data", "e_coli.txt")

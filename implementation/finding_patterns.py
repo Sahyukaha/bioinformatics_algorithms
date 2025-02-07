@@ -29,3 +29,33 @@ def find_clumps(genome, k_mer_size, window_size, threshold_count):
         frequent_kmers_for_clumps(new_window, k_mer_size, threshold_count, k_mers, clump_set)
 
     return ' '.join(elem for elem in clump_set)
+
+def hamming_distance(string1, string2):
+    
+    if len(string1) != len(string2):
+        return ValueError("Strings must be of the same length to compute Hamming distance.")
+    
+    return sum(1 for i in range(len(string1)) if string1[i] != string2[i])
+
+def generate_neighborhood(string, num_mismatch):
+    nucleotides = ['A', 'G', 'T', 'C']
+    
+    if(num_mismatch == 0):
+        return string
+    
+    elif(len(string) == 1):
+        return {'A', 'G', 'C', 'T'}
+    
+    else:
+        neighborhood = set()
+
+        suffix = generate_neighborhood(string[1:], num_mismatch)
+
+        for i in suffix:
+            if hamming_distance(string[1:], i) < num_mismatch:
+                for j in nucleotides:
+                    neighborhood.add(j + i)
+            else:
+                neighborhood.add(string[0] + i)
+
+        return neighborhood
