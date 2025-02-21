@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 def frequent_kmers_for_clumps(genome, k_mer_size, threshold_count, k_mer_dict, clump_set):
 
     for i in range(len(genome) - k_mer_size + 1):

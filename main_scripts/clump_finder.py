@@ -1,6 +1,6 @@
 import sys
 import os
-#from raise_error import *
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from implementation.finding_patterns import find_clumps
 
@@ -17,7 +17,6 @@ def main():
 
     clumps = find_clumps(genome, k_mer_size, window_size, threshold_count)
     print(clumps)
-    #print(int((len(clumps) + 1)/(k_mer_size + 1)))
 
 if __name__ == "__main__":
     main()
